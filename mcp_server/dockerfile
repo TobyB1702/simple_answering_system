@@ -1,0 +1,11 @@
+FROM python:3.12-slim
+
+COPY ./requirements.txt ./requirements.txt
+
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+
+COPY . ./mcp_server
+
+EXPOSE 3000
+
+CMD ["python", "mcp_server/mcp_server.py"]

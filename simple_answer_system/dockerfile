@@ -1,0 +1,11 @@
+FROM python:3.12-slim
+
+COPY ./requirements.txt ./requirements.txt
+
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+
+COPY . ./simple_answer_system/
+
+EXPOSE 8000
+
+CMD ["python", "-m", "simple_answer_system.src.app"]
